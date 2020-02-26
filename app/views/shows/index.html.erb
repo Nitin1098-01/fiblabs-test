@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shows</h1>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Timing</th>
+      <th>Channel Name </th>
+      <th > Action </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shows.each do |show| %>
+      <tr>
+        <td><%= show.name %></td>
+        <td><%= show.timing %></td>
+        <td><%= show.channel.name %></td>
+        <td>  <%= link_to 'Add to favourite', {:action => 'add_favourite', :id => show.id} , method: :post  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Show', new_show_path %>
